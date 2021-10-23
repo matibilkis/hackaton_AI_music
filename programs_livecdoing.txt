@@ -1,0 +1,16 @@
+coding - sound
+SUPERCOLLIDER
+
+
+
+                    OSC
+front-end language -----> Super-collider
+
+
+super-collider is a very powerful synthetizer
+
+you need to generate osc messages
+
+https://sonic-pi.net/
+https://github.com/tidalcycles/Tidal
+https://hydra.ojack.xyz/
