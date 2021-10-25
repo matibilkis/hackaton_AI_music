@@ -14,3 +14,6 @@ you need to generate osc messages
 https://sonic-pi.net/
 https://github.com/tidalcycles/Tidal
 https://hydra.ojack.xyz/
+
+hookliving
+https://progressionai.netlify.app/ - Bernat esquinool
