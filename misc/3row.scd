@@ -1,1 +1,0 @@
-x = CSVFileReader.readInterpret("/home/cooper-cooper/hackAI/learning_ev0/episode_"++countFiles.asString++".csv", true, true);
