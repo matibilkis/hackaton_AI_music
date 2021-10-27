@@ -3,8 +3,6 @@ s.boot;
 ~metaEpisode = 0; // this variable will keep a record of the swap number
 
 
-
-
 (
 var p, l;
 p = Pipe.new("ls ~/hackAI/AIdata/agent0/ | wc -l", "r");

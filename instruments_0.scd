@@ -64,4 +64,17 @@ SynthDef(\bpfsaw,{
 ).play;
 );
 s.record
+
+thisProcess.platform.recordingsDir = "/home/cooper-cooper/hackAI/recordings/";
+
+
+s.prepareForRecord; // if you want to start recording on a precise moment in time, you have to call this first.
+s.record; // start recording. This can also be called directly, if it isn't imprtant when precisely you need to start.
+s.stopRecording; // this closes the file and deallocates the buffer recording node, etc.
+
+
+r = Recorder.new(s);
+
+
+
 ~marimba.stop
