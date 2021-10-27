@@ -15,17 +15,6 @@ p.close;
 
 
 
-/// LOADING THE DATA ///
-
-(
-var agent = -1;
-var values;
-var valuesGreedy;
-var countFiles;
-var new;
-var newGreedy;
-
-
 
 /// this is the "instrument"
 (
@@ -41,46 +30,21 @@ SynthDef(\take2,{
 
 
 
+
+
+
+
+
+
+/// LOADING THE DATA ///
+
 (
-SynthDef(\ambient,{
-  arg duration = 0.5, freq = 60;
-  var masterVolume = -6.dbamp;
-  var rootFreq = freq.midicps;
-  var depthMod = LFSaw.kr(0.05).exprange(0.05, 5.0);
-  var gate = EnvGen.ar(Env([0, 1, 1, 0], [0.1, duration * 0.9, 0.25]), gate: 1, doneAction: 2);
-  var leveler = LinLin.ar(LFTri.ar(duration.reciprocal, 3), -1, 1, -24, 6).dbamp;
-  var sig = HPF.ar(
-    ({ |k|
-      Pan2.ar(({ |i|
-        SinOsc.ar(i * k + 2 / (k + 1) * rootFreq * (i + 1))} ! 4).product
-      * (k+1).reciprocal
-      * LFSaw.kr(
-        (k + 5).nthPrime.reciprocal * rootFreq * 0.25, k/7 * 2
-      ).exprange(-24.dbamp, 1),
-      LFTri.ar((k + 1).nthPrime * rootFreq)
-      )
-    } ! 16).sum * -18.dbamp,
-    40
-  );
-  var siggap = Amplitude.ar(sig).reciprocal.min(0.0625);
-  var verb = GVerb.ar(
-    sig.sum,
-    roomsize: [80, 135, 283],
-    revtime: depthMod * 2,
-    drylevel: 0,
-    taillevel: 0.dbamp * siggap,
-    earlyreflevel: -6.dbamp * siggap,
-    add: sig
-  ).sum * leveler * gate;
-  var env = DetectSilence.ar(verb, doneAction: 2);
-  verb * masterVolume;
-  Out.ar(0,verb*masterVolume);
-}).add;
-);
-
-
-
-
+var agent = -1;
+var values;
+var valuesGreedy;
+var countFiles;
+var new;
+var newGreedy;
 
 
 ~dict = Dictionary.new; //global variable
