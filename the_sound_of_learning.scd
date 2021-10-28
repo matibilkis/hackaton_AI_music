@@ -2,7 +2,26 @@
 s.boot;
 s.reboot;
 
+
+
+
+
 /// PRESENT THE INSTRUMENT!
+// guitar
+(
+SynthDef(\guitar,{
+  arg out=0.5, freq=60, sustain= 0.1;
+    var sig, env, delay, ff;
+	ff = freq.midicps;
+	delay = ff.reciprocal;
+	env = EnvGen.kr(Env.perc(0.001, sustain, 0.5), doneAction:2);
+	sig = Pluck.ar(SinOsc.ar(Line.ar(1000, 50, 0.01)*env) , Impulse.ar(0), delay, delay, 5, 0.5);
+    Out.ar(out, sig)
+}).add;
+Synth(\guitar);
+)
+
+/// Synth
 (
 SynthDef(\take2,{
   arg out=0.5, freq=60, sustain= 0.75;
@@ -12,7 +31,10 @@ SynthDef(\take2,{
     Out.ar(out, sig * env )
 }).add;
 Synth(\take2);
-);
+)
+
+
+
 
 
 /// LOADING THE DATA OBTAINED BY TRAINING THE ROBOTS!///
@@ -68,7 +90,7 @@ Tdef(\targetMelody,{
       3.do{
         agent = agent+1;
 		fplay = ~dict.at(agent)[0][0][note]; /// recall that trajectory 0 is the target one!
-        Synth(\take2).set(\freq,fplay + 60);
+        Synth(\take2).set(\freq,fplay+60);
 		fplay.postln;
       };
       0.5.wait;
