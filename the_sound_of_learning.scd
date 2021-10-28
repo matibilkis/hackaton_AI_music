@@ -1,5 +1,6 @@
 // This (or Ctrl+B) boots the server
 s.boot;
+s.reboot;
 
 /// PRESENT THE INSTRUMENT!
 (
@@ -79,8 +80,8 @@ Tdef(\targetMelody,{
 
 /// Let's listen what the agents do!!!
 (
-~time_between_melodies = 0.5;
-~time_between_notes = 0.3;
+~time_between_melodies = 0.5; /// quick is 0.3  // slooower 0.5
+~time_between_notes = 0.3; // quick 0.15;   // 0.3
 Tdef(\soundOfLearning,{
   var agent, episode, note, fplay, step, aa;
 	step = 5;
@@ -124,8 +125,8 @@ Tdef(\soundOfLearning,{
 
 /// Greedy actions!!!
 (
-~time_between_melodies = 0.5;
-~time_between_notes = 0.3;
+~time_between_melodies = 0.3;
+~time_between_notes = 0.15;
 Tdef(\soundOfLearning,{
   var agent, episode, note, fplay, step, aa;
 	step = 5;
