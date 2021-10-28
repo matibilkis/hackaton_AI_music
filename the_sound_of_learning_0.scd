@@ -2,6 +2,8 @@
 s.boot;
 s.reboot;
 
+thisProcess.platform.recordingsDir = "/home/cooper-cooper/hackAI/recordings/";
+
 
 
 
