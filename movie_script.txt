@@ -1,0 +1,1 @@
+convert -delay 1 @shorts.txt -loop 0 ani.gif
