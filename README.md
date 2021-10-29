@@ -1,3 +1,7 @@
+## Talk
+https://youtu.be/Y1urPDJekxY?t=1445
+
+
 ## Inspiration
 Do you imagine how many learning curves have AlphaGo team had to look at, when training their models? This can be fun, but also extremely boring. The idea of this project is to listen the learning progress, and open the doors to create music aided by machine learning.
 
