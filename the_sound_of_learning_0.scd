@@ -2,9 +2,12 @@
 s.boot;
 s.reboot;
 
+s.options.blockSize = 16
+
+
 thisProcess.platform.recordingsDir = "/home/cooper-cooper/hackAI/recordings/";
 
-
+Quarks.checkForUpdates({Quarks.install("SuperDirt", "v1.7.2"); thisProcess.recompile()})
 
 
 
@@ -12,7 +15,7 @@ thisProcess.platform.recordingsDir = "/home/cooper-cooper/hackAI/recordings/";
 // guitar
 (
 SynthDef(\guitar,{
-  arg out=0.5, freq=60, sustain= 0.1;
+  arg out=0.15, freq=60, sustain= 0.25;
     var sig, env, delay, ff;
 	ff = freq.midicps;
 	delay = ff.reciprocal;
@@ -92,7 +95,7 @@ Tdef(\targetMelody,{
       3.do{
         agent = agent+1;
 		fplay = ~dict.at(agent)[0][0][note]; /// recall that trajectory 0 is the target one!
-        Synth(\take2).set(\freq,fplay+60);
+        Synth(\guitar).set(\freq,fplay+60);
 		fplay.postln;
       };
       0.5.wait;
